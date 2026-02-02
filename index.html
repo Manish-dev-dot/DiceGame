@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Dice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="game-container">
+            
+            <div class="header">
+                <h1 class="title">NEON DICE</h1>
+            </div>
+
+            <div class="game-board">
+                <div class="player-section player--active" id="player--0">
+                    <div class="player-label" id="name--0">Player 1</div>
+                    <div class="score-display">
+                        <div class="score-label">Total Score</div>
+                        <div class="score-value" id="score--0">43</div> </div>
+                    <div class="current-score">
+                        <div class="current-label">Current Round</div>
+                        <div class="current-value" id="current--0">0</div>
+                    </div>
+                </div>
+
+                <div class="center-section">
+                    
+                    <div class="dice-container">
+                        <div class="dice" id="dice-el">
+                            <div class="dice-face">
+                                <div class="dot" style="grid-column: 1; grid-row: 1;"></div>
+                                <div class="dot" style="grid-column: 3; grid-row: 1;"></div>
+                                <div class="dot" style="grid-column: 2; grid-row: 2;"></div>
+                                <div class="dot" style="grid-column: 1; grid-row: 3;"></div>
+                                <div class="dot" style="grid-column: 3; grid-row: 3;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="controls">
+                        <button class="btn btn-roll" id="btn-roll">
+                            🎲 Roll Dice
+                        </button>
+                        <button class="btn btn-hold" id="btn-hold">
+                            💾 Hold Score
+                        </button>
+                        <button class="btn btn-new" id="btn-new">
+                            🔄 New Game
+                        </button>
+                    </div>
+
+                    <div class="target-info">
+                        <div class="target-label">Target Score</div>
+                        <div class="target-value">50</div>
+                    </div>
+                </div>
+
+                <div class="player-section" id="player--1">
+                    <div class="player-label" id="name--1">Player 2</div>
+                    <div class="score-display">
+                        <div class="score-label">Total Score</div>
+                        <div class="score-value" id="score--1">24</div> </div>
+                    <div class="current-score">
+                        <div class="current-label">Current Round</div>
+                        <div class="current-value" id="current--1">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-info">
+                <p>PLAYER 1 // ACTIVE</p>
+                <div class="instructions">
+                    Roll the dice to accumulate points. Hold to bank your score. 
+                    But beware - roll a 1 and you lose your current round!
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

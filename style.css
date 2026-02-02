@@ -1,0 +1,260 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: 'Courier New', monospace; /* Professional, mono-spaced font */
+    background-color: #0a0e27;
+    color: #fff;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Main Background Wrapper */
+.game-wrapper {
+    min-height: 100vh;
+    background: #0a0e27;
+    /* Subtle grid pattern */
+    background-image: 
+      repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(0, 255, 255, 0.03) 3px),
+      repeating-linear-gradient(90deg, rgba(255, 0, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 0, 255, 0.03) 3px);
+    background-size: 4px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container for max width constraint */
+.game-container {
+    width: 100%;
+    max-width: 1100px;
+    z-index: 10;
+}
+
+/* Header Text */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+  
+.title {
+    font-family: 'Arial Black', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Game Board Layout (Grid) */
+.game-board {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Left Player, Center Controls, Right Player */
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+/* Responsive Switch: Stack vertically on mobile */
+@media (max-width: 900px) {
+    .game-board {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px;
+    }
+    
+    /* Reorder to put dice in middle on mobile if needed, 
+       currently standard stacking order works fine */
+}
+
+/* Player Cards */
+.player-section {
+    background: rgba(10, 14, 39, 0.7);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    padding: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Active Player Styling */
+.player--active {
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    background: rgba(10, 14, 39, 0.9);
+}
+
+/* Player Name */
+.player-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+/* Second Player color variation */
+#player--1 .player-label {
+    color: #ff00ff;
+}
+
+#player--1.player--active {
+    border-color: #ff00ff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+/* Total Score Box */
+.score-display {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.score-label {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.score-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+}
+
+/* Current Round Score Box */
+.current-score {
+    background: #0d1235;
+    padding: 15px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.current-label {
+    font-size: 0.7rem;
+    color: #00ffff;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.current-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Center Control Section */
+.center-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Dice Styling */
+.dice {
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.dice-face {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 6px;
+    width: 70%;
+    height: 70%;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    background: #00ffff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #00ffff;
+}
+
+/* Buttons */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    min-width: 180px;
+}
+
+.btn {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px;
+    border: 2px solid;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #fff;
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+.btn-roll {
+    border-color: #00ffff;
+    color: #00ffff;
+}
+.btn-roll:hover { background: rgba(0, 255, 255, 0.1); }
+
+.btn-hold {
+    border-color: #ff00ff;
+    color: #ff00ff;
+}
+.btn-hold:hover { background: rgba(255, 0, 255, 0.1); }
+
+.btn-new {
+    border-color: #ffff00;
+    color: #ffff00;
+    margin-top: 10px;
+}
+.btn-new:hover { background: rgba(255, 255, 0, 0.1); }
+
+/* Target Info */
+.target-info {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    width: 100%;
+}
+
+.target-label { color: #aaa; font-size: 0.8rem; }
+.target-value { font-size: 1.5rem; color: #fff; font-weight: bold; }
+
+/* Footer Info */
+.game-info {
+    text-align: center;
+    color: rgba(0, 255, 255, 0.6);
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+.instructions {
+    max-width: 400px;
+    margin: 10px auto 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
